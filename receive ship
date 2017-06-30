@@ -1,0 +1,78 @@
+<!doctype html>
+<head>
+<title>Receive Shipment</title>
+<style>
+.btn {
+	color: white;
+	background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%)
+		100%) rgb(71, 180, 245);
+	width: 120px;
+	height: 25px;
+}
+
+th {
+	background-color: #007CC2;
+	color: white;
+}
+table,th,td{
+	border: 1px solid black; 
+	border-collapse: collapse; 
+}
+
+p1 {
+	font-family: Times New Roman;
+	font-style: bold;
+	font-size: 20px;
+	padding-left: 80px;
+}
+</style>
+</head>
+<body>
+	<form
+		style="border: 2px solid #1E90FF; background-color: rgba(240, 240, 240, 1); height: 400px; width: 700px;">
+		<center>
+			<img src="logo_pg.png" style="height: 54px; width: 54px; position: relative; top: 10px; right: 10px; float:right;"><br>
+			
+			<h3 style="padding-left:8%">EXPEDITOR(USA)</h3>
+			<input type="text"  placeholder="Expeditor(IN) ASN#" style="border:2px solid Forestgreen; width: 150px; height: 20px;"><br>
+			<br>
+			<tr>
+				<td style="padding-left: 80px;"><input type="button"
+					value="Retrive Details" onclick="#" class="btn"></td>
+			</tr>
+			</table>
+			<br>
+		</center>
+		<p1>Shipment Details</p1>
+		<center>
+			<table width=85% align="center" border=2px;  >
+				<center>
+					<div style="overflow: auto;">
+
+						<tr>
+							<th>Packaging Type</th>
+							<th>Shipped Location</th>
+							<th>ASN#</th>
+							<th>PO#</th>
+							<th>Lot#</th>
+							<th>Total Quantity</th>
+							<th>Total Weight(kg)</th>
+							<th>Custom Duty($)</th>
+						</tr>
+
+						<tr>
+							<td id="MC">Metal Containers</td>
+							<td>P&G Warehouse, Phoenix</td>
+							<td>BOL102</td>
+							<td>PGPO2605</td>
+							<td>1</td>
+							<td>10</td>
+							<td>100.50</td>
+							<td>10.20</td>
+						</tr>
+					</div>
+			</table>
+		</center>
+	</form>
+</body>
+</html>
