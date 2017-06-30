@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<style>
+tab {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td {
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #f2f2f2
+}
+
+th {
+	background-color: #007CC2;
+	color: white;
+}
+
+p1 {
+	font-family: Times New Roman;
+	font-style: bold;
+	font-size: 20px;
+	padding-left: 80px;
+}
+
+.btn-3 {
+	color: white;
+	background: #007CC2;
+	width: 100px;
+	height: 40px;
+	border-radius: 12px;
+}
+
+.btn-2 {
+	color: black;
+	background: #91D6F3;
+	width: 100px;
+	height: 20px;
+	border: 2px solid #007CC2;
+}
+
+.success-box {
+	position: absolute;
+	height: 125px;
+	width: 30%;
+	margin: 20% 0 0 20%;
+	z-index: 2000;
+	top: -20px;
+	background: linear-gradient(#e5eaef 5%, rgb(109, 192, 241) 100%) #e5eaef;
+	border: 1px solid blue;
+	padding-top: 15px;
+}
+
+.value_1 { 
+	border:2px solid Forestgreen; 
+	width:130px; 
+	height:20px; 
+	background:white;
+	color:#696969;
+} 
+
+#display { 
+	width:130px; 
+	height:20px; 
+	background:white; color:#696969; 
+}
+</style>
+</head>
+<body>
+	<form
+		style="border: 2px solid #1E90FF; background-color: rgba(240, 240, 240, 1); height: 550px; width: 700px;">
+		<p align="center">
+			<b>Expeditor (US)</b>
+		</p>
+		<br> <br>
+		<table width=100%>
+			<td id="display">Shipping Type</td>
+			<td><select name="actors"
+				style="width: 170px; border: 2px solid Forestgreen">
+					<option>Select</option>
+					<option value="buyer">Trucks</option>
+			</select></td>
+			<td id="display">Shipped Date</td>
+			<td><label class="value_1">
+					<label style="padding-left: 8px; padding-right: 40px;">19/07/2017</label>
+			</label></td>
+			</tr>
+			<tr>
+				<td id="display">Insurance#</td>
+				<td><label class="value_1">
+						<label style="padding-left: 8px; padding-right: 40px;">USIN1907</label></td>
+				</label>
+				<td id="display">Shipped Location</td>
+				<td><label class="value_1">
+						<label style="padding-left: 8px; padding-right: 40px;">P&G
+							Warehouse, Phoenix</label></td>
+			</tr>
+		</table>
+		<p1>Shipment Details</p1>
+		<table class="detail" width=80% align="center" border="1px">
+			<tr>
+				<th style="border:none"></th>
+				<th>Packaging Type</th>
+				<th>Shipped Location</th>
+				<th>PO#</th>
+				<th>Lot#</th>
+				<th>Total Quantity</th>
+				<th>Total Weight(kg)</th>
+
+			</tr>
+			<tr>
+				<td name="select" style="border:none"><input type="checkbox" name="record"></td>
+				<td>Metal Containers</td>
+				<td>P&G Warehouse, Phoenix</td>
+				<td>PGPO2605</td>
+				<td>1</td>
+				<td>10</td>
+				<td>100.50</td>
+			</tr>
+			
+			<div class="success-box" style="display:none;">
+				<a id="close" href="#" style="float: right;">[x]</a>
+				<center>
+					Advance Shipping Notice Successfully Created!! 
+					<br>
+					<br>
+					<div id="display" class="message value_1"></div>
+				</center>		
+			</div> 
+			
+			<table>
+				<tr>
+					<td style="padding-left: 80px;"><input type="button"
+						value="Add details" class="btn-2 add-row"></td>
+					<td><input type="button" value="Delete details" onclick="#"
+						class="btn-2 delete-row"></td>
+			</table>
+			<table align="center">
+
+				<tr>
+					<td><input type="button" value="Create"
+						id="create" class="btn-3"></td>
+					<td><input type="button" value="Cancel"
+						id="cancel" class="btn-3"></td>
+				</tr>
+			</table>
+
+
+		</table>
+		
+</body>
+<script type="text/javascript">
+function success(){
+	alert("Advance Shipping Notice Successfully Created!!");
+	}
+
+$("#create").click(function() {
+	$(".success-box").toggle();
+	$(".message").html("ASNSH2106");
+})
+
+$("#close").click(function() {
+	$(".success-box").hide();
+});
+
+$(".add-row").click(function(){
+	var data = '<tr><td name="select" style="border:none"><input type="checkbox" name="record"></td><td><input style="width: 100px" type="text" id="pkg-type"></td><td><input style="width: 80px" type="text" id="shipped-location"></td><td><input style="width: 90px" type="text" id="po-no"></td><td><input style="width: 50px" type="text" id="lot-no"></td><td><input style="width: 80px" type="text" id="qty"></td><td><input style="width: 100px" type="text" id="weight"></td></tr>';
+	$(".detail").append(data);
+});
+
+$("#cancel").click(function() {
+	window.location.href = "B_Welcome.html";
+});
+
+$(".delete-row").click(function(){
+	$(".detail tbody").find('input[name="record"]').each(function(){
+		if($(this).is(":checked")){
+			$(this).parents("tr").remove();
+		}
+		
+	});
+});
+</script>
+</html>
